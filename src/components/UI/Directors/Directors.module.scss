@@ -1,0 +1,45 @@
+.directors {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: row;
+
+  &__title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 4rem;
+    }
+  }
+
+  &__photo {
+    height: 13rem;
+    margin-right: 1rem;
+    object-fit: cover;
+  }
+
+  &__name-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  &__profession {
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    color: rgb(138, 138, 138);
+  }
+}

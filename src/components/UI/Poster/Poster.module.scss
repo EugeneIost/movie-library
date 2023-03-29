@@ -1,0 +1,25 @@
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 5px 5px 30px 10px rgb(43, 43, 43);
+}
+
+.null-poster {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.null-poster-logo {
+  width: 5rem;
+  height: 5rem;
+}
+
+.null-poster-title {
+  font-size: 2.4rem;
+  color: #9e9e9e;
+}

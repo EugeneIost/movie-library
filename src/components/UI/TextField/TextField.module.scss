@@ -1,0 +1,13 @@
+.text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  font-size: 1.8rem;
+  color: #525252;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}

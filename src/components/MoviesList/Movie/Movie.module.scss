@@ -1,0 +1,69 @@
+.movie {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  &__poster-container {
+    min-height: 40rem;
+    position: relative;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__year {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  &__rating-container {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__rating-container_green {
+    background-color: green;
+  }
+
+  &__rating-container_yellow {
+    background-color: #ffd700;
+  }
+
+  &__rating-container_grey {
+    background-color: grey;
+  }
+
+  &__rating {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+  }
+}
