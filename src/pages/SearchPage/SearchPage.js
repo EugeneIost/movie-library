@@ -20,7 +20,7 @@ const SearchPage = () => {
   useEffect(() => {
     dispatch(setSearchValue(searchValue));
     dispatch(fetchMovies());
-  }, [dispatch]);
+  }, [dispatch, searchValue]);
 
   const clickBackButtonHandler = (e) => {
     e.preventDefault();
@@ -33,6 +33,7 @@ const SearchPage = () => {
     <Wrapper>
       <div className={styles['search-page__title-container']}>
         <button
+          type="button"
           className={styles['search-page__back-button']}
           onClick={clickBackButtonHandler}
         >

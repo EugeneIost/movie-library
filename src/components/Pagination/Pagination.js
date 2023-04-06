@@ -1,14 +1,19 @@
-import { useSelector } from 'react-redux';
-import { paginationCreator } from '../../helpers/pagination-creator';
 import cn from 'classnames';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import arrowRight from '../../assets/icons/arrow-right.png';
+import { paginationCreator } from '../../helpers/pagination-creator';
 import styles from './Pagination.module.scss';
 
 const Pagination = ({ clickPageHandler }) => {
   const pagesQuantity = useSelector((state) => state.moviesList.pagesQuantity);
   const currentPage = useSelector((state) => state.moviesList.currentPage);
 
-  const pagination = paginationCreator(currentPage, pagesQuantity);
+  const pagination = useMemo(
+    () => paginationCreator(currentPage, pagesQuantity),
+    [currentPage, pagesQuantity]
+  );
+
   return (
     <>
       {pagination.length > 1 && (
@@ -19,10 +24,11 @@ const Pagination = ({ clickPageHandler }) => {
               alt="arrow left"
               className={cn(styles.pagination__left, styles.pagination__arrow)}
               onClick={() => {
-                if (currentPage != 1) clickPageHandler(currentPage - 1);
+                clickPageHandler(currentPage - 1);
               }}
             />
           )}
+          {/* TODO Сократить через тернарник ???*/}
           {pagination.map((page, index) => {
             if (index < pagination.length - 1 || pagination.length <= 5) {
               return (
@@ -56,14 +62,14 @@ const Pagination = ({ clickPageHandler }) => {
               );
             }
           })}
+
           {currentPage !== pagesQuantity && (
             <img
               src={arrowRight}
               alt="arrow right"
               className={cn(styles.pagination__rigth, styles.pagination__arrow)}
               onClick={() => {
-                if (currentPage !== pagesQuantity)
-                  clickPageHandler(currentPage + 1);
+                clickPageHandler(currentPage + 1);
               }}
             />
           )}

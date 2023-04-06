@@ -14,6 +14,7 @@ const Movie = ({ name, altName, rating, year, poster, id, color }) => {
       }}
     >
       <div className={styles['movie__poster-container']}>
+        {/* TODO сократить */}
         {poster ? (
           <Poster url={poster.url} altName={altName} color={color} />
         ) : (
@@ -31,6 +32,7 @@ const Movie = ({ name, altName, rating, year, poster, id, color }) => {
           <span className={styles.movie__rating}>{rating.toFixed(1)}</span>
         </div>
       </div>
+      {/* TODO сократить */}
       {name ? (
         <h3 className={styles.movie__title}>{name}</h3>
       ) : (

@@ -18,7 +18,6 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    screen: true,
   },
   extends: [
     'airbnb',

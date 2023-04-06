@@ -61,7 +61,9 @@ const MovieDetailsPage = () => {
           onClickCloseModal={closeModalHandler}
         />
       )}
+
       {error && <ErrorMessage error={error} />}
+
       {status === 'loading' ? (
         <LoadingSpin />
       ) : (
@@ -80,6 +82,7 @@ const MovieDetailsPage = () => {
                     [styles['movie__poster-container_null']]: !movie.poster,
                   })}
                 >
+                  {/* TODO Упростить, url null если не нужен */}
                   {movie.poster ? (
                     <Poster
                       url={movie.poster.url}
@@ -154,6 +157,8 @@ const MovieDetailsPage = () => {
                       <Watchability items={movie.watchability.items} />
                     )}
                   </div>
+
+                  {/* TODO вынести в поле при запросе данных */}
                   {movie?.videos?.trailers.find(
                     (trailer) => trailer.site === 'youtube'
                   ) && (
