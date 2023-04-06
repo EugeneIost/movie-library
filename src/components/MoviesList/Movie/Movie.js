@@ -1,7 +1,7 @@
-import styles from './Movie.module.scss';
 import cn from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import Poster from '@/components/UI/Poster';
+import styles from './Movie.module.scss';
 
 const Movie = ({ name, altName, rating, year, poster, id, color }) => {
   const navigate = useNavigate();
@@ -14,13 +14,7 @@ const Movie = ({ name, altName, rating, year, poster, id, color }) => {
       }}
     >
       <div className={styles['movie__poster-container']}>
-        {/* TODO сократить */}
-        {poster ? (
-          <Poster url={poster.url} altName={altName} color={color} />
-        ) : (
-          <Poster altName={altName} color={color} />
-        )}
-
+        <Poster url={poster?.url} altName={altName} color={color} />
         <div
           className={cn(styles['movie__rating-container'], {
             [styles['movie__rating-container_green']]: Math.round(rating) >= 8,
@@ -32,12 +26,7 @@ const Movie = ({ name, altName, rating, year, poster, id, color }) => {
           <span className={styles.movie__rating}>{rating.toFixed(1)}</span>
         </div>
       </div>
-      {/* TODO сократить */}
-      {name ? (
-        <h3 className={styles.movie__title}>{name}</h3>
-      ) : (
-        <h3 className={styles.movie__title}>{altName}</h3>
-      )}
+      <h3 className={styles.movie__title}>{name || altName}</h3>
       <span className={styles.movie__year}>{year}</span>
     </div>
   );

@@ -1,16 +1,10 @@
 import styles from './Directors.module.scss';
 
-const Directors = ({ items, clickPersonHandler }) => {
+const Directors = ({ items }) => {
   return (
-    <div className={styles.directors} on>
+    <div className={styles.directors}>
       {items.map((item) => (
-        <div
-          key={item.name}
-          className={styles.directors__container}
-          onClick={() => {
-            clickPersonHandler(item.id);
-          }}
-        >
+        <div key={item.name} className={styles.directors__container}>
           <img
             src={item.photo}
             alt={item.name}

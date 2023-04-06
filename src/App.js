@@ -1,19 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
 import './assets/styles/index.scss';
+import { register } from 'swiper/element/bundle';
 import HomePage from './pages/HomePage';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 import SearchPage from './pages/SearchPage';
-import { register } from 'swiper/element/bundle';
-import PersonDetailsPage from './pages/PersonDetailsPage';
 
 const App = () => {
   register();
   return (
     <Routes>
-      <Route path="/" element={<HomePage />}></Route>
-      <Route path="/movie/:id" element={<MovieDetailsPage />}></Route>
-      <Route path="/search/:searchValue" element={<SearchPage />}></Route>
-      <Route path="/person/:id" element={<PersonDetailsPage />}></Route>
+      <Route path="/">
+        <Route index element={<HomePage />} />
+        <Route path="/movie/:id" element={<MovieDetailsPage />} />
+        <Route path="/search/:searchValue" element={<SearchPage />} />
+      </Route>
     </Routes>
   );
 };

@@ -1,5 +1,6 @@
-const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 import api from '@/api/api';
+
+const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 
 const initialState = {
   movie: null,
@@ -18,12 +19,18 @@ export const fetchMovieById = createAsyncThunk(
 
       const [data] = response.data.docs;
 
+      const youtubeTrailer = data?.videos?.trailers.find(
+        (trailer) => trailer.site === 'youtube'
+      );
+
       const persons = data.persons.reduce(
         (acc, person) => {
           if (person.profession === 'актеры') {
             acc.actors.push(person);
             return acc;
-          } else if (person.profession === 'режиссеры') {
+          }
+
+          if (person.profession === 'режиссеры') {
             acc.directors.push(person);
             return acc;
           }
@@ -35,15 +42,9 @@ export const fetchMovieById = createAsyncThunk(
         }
       );
 
-      // const filteredPersons = data.persons.filter(
-      //   (person) => person.profession === 'актеры'
-      // );
-      // const director = data.persons.find(
-      //   (person) => person.profession === 'режиссеры'
-      // );
-
       return {
         ...data,
+        youtubeTrailer,
         persons: persons.actors,
         directors: persons.directors,
       };

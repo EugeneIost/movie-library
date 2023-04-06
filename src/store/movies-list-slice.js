@@ -17,7 +17,6 @@ export const fetchMovies = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     const state = getState();
     let response;
-    console.log(state.moviesList);
 
     try {
       if (state.moviesList.searchValue) {

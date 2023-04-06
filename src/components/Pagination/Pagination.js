@@ -15,6 +15,7 @@ const Pagination = ({ clickPageHandler }) => {
   );
 
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {pagination.length > 1 && (
         <div className={styles.pagination}>
@@ -28,40 +29,24 @@ const Pagination = ({ clickPageHandler }) => {
               }}
             />
           )}
-          {/* TODO Сократить через тернарник ???*/}
-          {pagination.map((page, index) => {
-            if (index < pagination.length - 1 || pagination.length <= 5) {
-              return (
-                <span
-                  key={page}
-                  className={cn(styles.pagination__item, {
-                    [styles.pagination__item_active]: page === currentPage,
-                  })}
-                  onClick={() => {
-                    clickPageHandler(page);
-                  }}
-                >
-                  {page}
-                </span>
-              );
-            } else if (pagination.length > 5) {
-              return (
-                <div key={page}>
-                  <span className={styles.pagination__skip}>...</span>
-                  <span
-                    className={cn(styles.pagination__item, {
-                      [styles.pagination__item_active]: page === currentPage,
-                    })}
-                    onClick={() => {
-                      clickPageHandler(page);
-                    }}
-                  >
-                    {page}
-                  </span>
-                </div>
-              );
-            }
-          })}
+          {pagination.map((page, index) => (
+            <div key={page}>
+              {pagination.length > 5 && index === pagination.length - 1 && (
+                <span className={styles.pagination__skip}>...</span>
+              )}
+              <span
+                key={page}
+                className={cn(styles.pagination__item, {
+                  [styles.pagination__item_active]: page === currentPage,
+                })}
+                onClick={() => {
+                  clickPageHandler(page);
+                }}
+              >
+                {page}
+              </span>
+            </div>
+          ))}
 
           {currentPage !== pagesQuantity && (
             <img

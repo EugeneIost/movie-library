@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Pagination from '../Pagination';
 import Movie from './Movie/Movie';
-import Wrapper from '../UI/Wrapper';
 import styles from './MoviesList.module.scss';
 import LoadingSpin from '../UI/LoadingSpin';
 import ErrorMessage from '../UI/ErrorMessage';

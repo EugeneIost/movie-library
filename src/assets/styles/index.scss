@@ -16,3 +16,15 @@ body {
   min-height: 100vh;
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
+
+@media (max-width: 1199px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 575px) {
+  html {
+    font-size: 6px;
+  }
+}

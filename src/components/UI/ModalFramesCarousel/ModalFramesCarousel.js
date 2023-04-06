@@ -9,7 +9,7 @@ const ModalFramesCarousel = ({
 }) => {
   return (
     <>
-      <div className={styles.backdrop}></div>
+      <div className={styles.backdrop} />
       <div className={styles.modal}>
         <img
           src={closeIcon}

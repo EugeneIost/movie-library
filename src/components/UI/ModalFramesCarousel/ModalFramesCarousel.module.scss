@@ -31,3 +31,15 @@
   z-index: 15;
   cursor: pointer;
 }
+
+@media (max-width: 1440px) {
+  .modal {
+    top: 50%;
+    width: 90%;
+    height: 90%;
+  }
+}
+
+// @media (max-width: 1440px) {
+
+// }

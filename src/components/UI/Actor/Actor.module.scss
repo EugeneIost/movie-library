@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 
   &__photo {
     height: 13rem;
@@ -14,5 +13,6 @@
   &__name {
     font-size: 1.8rem;
     color: white;
+    text-align: center;
   }
 }

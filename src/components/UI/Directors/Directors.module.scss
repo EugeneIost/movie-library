@@ -12,11 +12,7 @@
   &__container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    cursor: pointer;
-    &:not(:last-child) {
-      margin-right: 4rem;
-    }
+    margin-right: 4rem;
   }
 
   &__photo {
