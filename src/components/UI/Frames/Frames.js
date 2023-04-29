@@ -1,4 +1,5 @@
 import styles from './Frames.module.scss';
+import nullFrame from '../../../assets/icons/photo-camera.png';
 
 const Frames = ({ frames, onFrameClickHandler }) => {
   return (
@@ -13,6 +14,10 @@ const Frames = ({ frames, onFrameClickHandler }) => {
             className={styles['frames__item-image']}
             onClick={() => {
               onFrameClickHandler(index);
+            }}
+            onError={(e) => {
+              e.currentTarget.src = nullFrame;
+              e.currentTarget.className = styles['null-frame'];
             }}
           />
         ))}

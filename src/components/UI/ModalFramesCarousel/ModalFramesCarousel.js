@@ -1,5 +1,5 @@
 import styles from './ModalFramesCarousel.module.scss';
-
+import nullFrame from '../../../assets/icons/photo-camera.png';
 import closeIcon from '../../../assets/icons/close-icon.png';
 
 const ModalFramesCarousel = ({
@@ -26,11 +26,17 @@ const ModalFramesCarousel = ({
         >
           {frames.map((frame) => (
             <swiper-slide key={frame.url}>
-              <img
-                src={frame.url}
-                alt={frame.type}
-                className={styles.modal__frame}
-              />
+              <div className={styles['image-container']}>
+                <img
+                  src={frame.url}
+                  alt={frame.type}
+                  className={styles.modal__frame}
+                  onError={(e) => {
+                    e.currentTarget.src = nullFrame;
+                    e.currentTarget.className = styles['null-frame'];
+                  }}
+                />
+              </div>
             </swiper-slide>
           ))}
         </swiper-container>

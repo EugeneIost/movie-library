@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Poster from '@/components/UI/Poster';
@@ -21,7 +21,6 @@ import Watchability from '../../components/UI/Watchability';
 import TextField from '../../components/UI/TextField';
 
 const MovieDetailsPage = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const movie = useSelector((state) => state.movie.movie);

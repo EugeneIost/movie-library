@@ -30,6 +30,14 @@
   }
 }
 
+.null-frame {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  align-self: center;
+  margin: 0 auto;
+}
+
 @media (max-width: 767px) {
   .frames {
     &__grid {

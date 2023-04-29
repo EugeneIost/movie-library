@@ -32,6 +32,19 @@
   cursor: pointer;
 }
 
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rem;
+  width: 100%;
+}
+
+.null-frame {
+  width: 20rem;
+  height: 20rem;
+}
+
 @media (max-width: 1440px) {
   .modal {
     top: 50%;

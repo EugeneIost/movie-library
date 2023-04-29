@@ -56,11 +56,13 @@ export const fetchMovieById = createAsyncThunk(
 
 export const fetchMovieFrames = createAsyncThunk(
   'movie/fetchMovieFrames',
-  async (id) => {
+  async (id, { rejectWithValue }) => {
     try {
       const response = await api.get(
         `/v1/image?movieId=${id}&type=frame&limit=8`
       );
+
+      console.log(response);
 
       return response.data.docs;
     } catch (error) {
